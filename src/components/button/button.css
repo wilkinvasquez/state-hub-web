@@ -1,0 +1,84 @@
+.sth-button {
+    outline: 0;
+    border: none;
+    width: 100%;
+    border-radius: 5px;
+    font-family: Roboto-Medium;
+    color: #ffffff;
+}
+
+.sth-button-title{
+    font-size: 10pt;
+}
+
+.sth-button-disabled {
+    opacity: .7;
+    border: 0 !important;
+    filter: brightness(0.8) !important;
+}
+
+.sth-button-loading {
+    width: 25px;
+    animation: sth-button-loading-animation 1.5s ease-in-out infinite;
+}
+
+@keyframes sth-button-loading-animation {
+    from {
+        transform: rotate(0deg);
+    }
+    to {
+        transform: rotate(360deg);
+    }
+}
+
+.sth-button-sm {
+    height: 40px;
+}
+
+.sth-button-md {
+    height: 45px;
+}
+
+.sth-button-lg {
+    height: 55px;
+}
+
+.sth-button-primary {
+    background-color: #6a6a6a;
+}
+
+.sth-button-primary:hover {
+    background-color: #818080;
+    border: 3px solid #e1dfdf;
+    cursor: pointer;
+}
+
+.sth-button-secondary {
+    background-color: #274e63;
+}
+
+.sth-button-secondary:hover {
+    filter: brightness(1.2);
+    border: 3px solid rgb(87, 129, 151);
+    cursor: pointer;
+}
+
+.sth-button-success {
+    background-color: #069857;
+}
+
+.sth-button-success:hover {
+    filter: brightness(1.2);
+    border: 3px solid #17cd7d;
+    cursor: pointer;
+}
+
+.sth-button-cancel {
+    background-color: #b60202;
+}
+
+.sth-button-cancel:hover {
+    background-color: #ed0b0b;
+    border: 3px solid #f68080;
+    cursor: pointer;
+}

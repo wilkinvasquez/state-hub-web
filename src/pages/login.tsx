@@ -1,13 +1,14 @@
 import { useCallback, useState } from 'react';
-import Input from '../components/input';
 import './login.css';
 import Authentication from '../dtos/authentications/authentication';
+import Input from '../components/input/input';
+import Button from '../components/button/button';
 
 const Login = () => {
     const [authentication, setAuthentication] = useState<Authentication | null>(null);
 
     const login = useCallback(() => {
-
+        console.log(authentication);
     }, [authentication]);
 
     return (
@@ -37,6 +38,16 @@ const Login = () => {
                                 ...authentication,
                                 password: password
                             })}
+                        />
+                    </div>
+
+                    <div className='login-button'>
+                        <Button
+                            title={'Login'}
+                            buttonClassName={'sth-button sth-button-secondary sth-button-sm'}
+                            showLoading={false}
+                            disabled={false}
+                            callback={login}
                         />
                     </div>
                 </div>
