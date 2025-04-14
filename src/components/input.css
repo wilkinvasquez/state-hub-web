@@ -1,0 +1,19 @@
+.sth-input-container {
+}
+
+.sth-input-title{
+    font-family: Roboto-Bold;
+    color: #1a4359;
+    font-size: 10pt;
+    padding-left: 5px;
+}
+
+.sth-input {
+    width: 90%;
+    height: 35px;
+    outline: 0;
+    border: 2px solid #29bfc2;
+    border-radius: 8px;
+    padding: 0 10px 0 10px;
+    margin-top: 3px;
+}
