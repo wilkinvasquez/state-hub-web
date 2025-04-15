@@ -8,7 +8,7 @@ interface Props {
 }
 
 const Paginator = (props: Props) => {
-    const [pageNumber, setPageNumber] = useState<number>(0);
+    const [pageNumber, setPageNumber] = useState<number>(1);
     const [pageSize, setPageSize] = useState<number>(2);
     const [pageNumberList, setPageNumberList] = useState<Array<number>>([]);
 
