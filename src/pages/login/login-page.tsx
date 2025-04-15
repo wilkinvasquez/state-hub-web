@@ -8,7 +8,7 @@ import Button from '../../components/button/button';
 import AuthenticationResult from '../../dtos/authentications/authentication-result';
 import Result from '../../dtos/results/result';
 
-const Login = () => {
+const LoginPage = () => {
     const [authentication, setAuthentication] = useState<Authentication | null>(null);
 
     const login = useCallback(() => {
@@ -63,4 +63,4 @@ const Login = () => {
     );
 }
 
-export default Login;
+export default LoginPage;
