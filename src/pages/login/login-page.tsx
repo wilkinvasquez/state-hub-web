@@ -1,18 +1,20 @@
 import { useCallback, useState } from 'react';
-import './login.css';
-import Authentication from '../dtos/authentications/authentication';
-import Input from '../components/input/input';
-import Button from '../components/button/button';
-import UserService from '../services/users/user-service';
-import StorageService from '../services/storages/storage-service';
+import './login-page.css';
+import UserService from '../../services/users/user-service';
+import Authentication from '../../dtos/authentications/authentication';
+import StorageService from '../../services/storages/storage-service';
+import Input from '../../components/input/input';
+import Button from '../../components/button/button';
+import AuthenticationResult from '../../dtos/authentications/authentication-result';
+import Result from '../../dtos/results/result';
 
 const Login = () => {
     const [authentication, setAuthentication] = useState<Authentication | null>(null);
 
     const login = useCallback(() => {
-        UserService.authenticate(authentication).then((result: any) => {
-            StorageService.setToken(result.data.token);
-            StorageService.setUsername(result.data.username);
+        UserService.authenticate<AuthenticationResult>(authentication).then((result: Result<AuthenticationResult>) => {
+            StorageService.setToken(result.data!.token);
+            StorageService.setUsername(result.data!.username);
         });
     }, [authentication]);
 
