@@ -3,12 +3,17 @@ import './login.css';
 import Authentication from '../dtos/authentications/authentication';
 import Input from '../components/input/input';
 import Button from '../components/button/button';
+import UserService from '../services/users/user-service';
+import StorageService from '../services/storages/storage-service';
 
 const Login = () => {
     const [authentication, setAuthentication] = useState<Authentication | null>(null);
 
     const login = useCallback(() => {
-        console.log(authentication);
+        UserService.authenticate(authentication).then((result: any) => {
+            StorageService.setToken(result.data.token);
+            StorageService.setUsername(result.data.username);
+        });
     }, [authentication]);
 
     return (
