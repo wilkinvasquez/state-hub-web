@@ -1,16 +1,11 @@
-import { useEffect } from 'react';
 import GovermentEntity from '../../../dtos/goverment-entities/goverment-entity';
 import '../table.css';
 
 interface Props {
-    rows?: Array<GovermentEntity>
+    rows?: Array<GovermentEntity>,
 }
 
 const GovermentEntitiesTable = (props: Props) => {
-    useEffect(() => {
-        console.log('rows', props.rows);
-    }, [props.rows]);
-
     return (
         <div className='sth-table-container'>
             <table>
@@ -25,11 +20,11 @@ const GovermentEntitiesTable = (props: Props) => {
                 <tbody>
                     {
                         props.rows?.map((row: GovermentEntity) => (
-                            <tr>
+                            <tr key={row.id}>
                                 <td>{row.name}</td>
-                                <td>5</td>
-                                <td>$1.00</td>
-                                <td>$5.00</td>
+                                <td>{row.acronym}</td>
+                                <td>{row.address}</td>
+                                <td>{row.phone}</td>
                             </tr>
                         ))
                     }
