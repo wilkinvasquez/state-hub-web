@@ -1,6 +1,7 @@
 import GovermentEntityType from "../goverment-entity-types/goverment-entity-type";
 
 class GovermentEntity{
+    id?: number | null;
     name?: string | null;
     description?: string | null;
     acronym?: string | null;
@@ -10,6 +11,7 @@ class GovermentEntity{
     entityType?: GovermentEntityType | null;
 
     constructor(){
+        this.id = null;
         this.name = null;
         this.description = null;
         this.acronym = null;
