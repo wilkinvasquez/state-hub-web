@@ -6,7 +6,7 @@ import PaginationResponse from "../../dtos/pagination-response/pagination-respon
 import Result from "../../dtos/results/result";
 
 class GovermentEntityService extends BaseService {
-    public static getAllPaged(pageNumber: number, pageSize: number, filter: string): Promise<Result<PaginationResponse<GovermentEntity>>> {
+    public static getAllPaged(pageNumber: number, pageSize: number, filter: string | null = ''): Promise<Result<PaginationResponse<GovermentEntity>>> {
         const headers = this.getHeaders();
         const url = `${GovermentEntityEndPoint.PAGINATION}?pageNumber=${pageNumber}&pageSize=${pageSize}&filter=${filter}`;
 
