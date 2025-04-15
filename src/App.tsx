@@ -1,9 +1,10 @@
 import './App.css'
-import Login from './pages/login/login-page';
+import GovermentEntitiesPage from './pages/goverment-entities/goverment-entities-page';
 
 function App() {
 	return (
-		<Login />
+		// <LoginPage />
+		<GovermentEntitiesPage/>
 	);
 }
 
