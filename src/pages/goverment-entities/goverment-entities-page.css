@@ -3,10 +3,17 @@
     padding: 40px;
 }
 
-.goverment-entities-page-search-input {
-    
+.goverment-entities-page-title{
+    font-family: Roboto-ExtraBold;
+    color: #0d3048;
+    font-size: 20pt;
+    margin-bottom: 30px;
 }
 
 .goverment-entities-page-search-button {
-    margin-top: 15px;
+    padding-top: 2px;
+}
+
+.goverment-entities-page-table-container{
+    margin-top: 40px;
 }

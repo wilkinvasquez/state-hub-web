@@ -9,7 +9,7 @@ interface Props {
 
 const Paginator = (props: Props) => {
     const [pageNumber, setPageNumber] = useState<number>(1);
-    const [pageSize, setPageSize] = useState<number>(2);
+    const [pageSize, setPageSize] = useState<number>(5);
     const [pageNumberList, setPageNumberList] = useState<Array<number>>([]);
 
     const { onPageNumberChange } = props;
@@ -44,8 +44,8 @@ const Paginator = (props: Props) => {
             }
 
             <Select
-                options={[2, 5, 10, 15, 25, 35, 50, 100, 300, 500]}
-                callback={(value: string | null) => setPageSize(parseInt(value ?? '2'))}
+                options={[5, 10, 15, 25, 35, 50, 100, 300, 500]}
+                callback={(value: string | null) => setPageSize(parseInt(value ?? '5'))}
             />
         </div>
     );

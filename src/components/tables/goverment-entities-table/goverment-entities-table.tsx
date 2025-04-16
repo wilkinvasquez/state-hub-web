@@ -8,23 +8,28 @@ interface Props {
 const GovermentEntitiesTable = (props: Props) => {
     return (
         <div className='sth-table-container'>
-            <table>
-                <thead>
+            <table className='sth-table'>
+                <thead className='sth-table-head'>
                     <tr>
-                        <th>Nombre</th>
-                        <th>Acrónimo</th>
-                        <th>Dirección</th>
-                        <th>Teléfono</th>
+                        <th className='sth-table-head-cell'></th>
+                        <th className='sth-table-head-cell'>Nombre</th>
+                        <th className='sth-table-head-cell'>Acrónimo</th>
+                        <th className='sth-table-head-cell'>Dirección</th>
+                        <th className='sth-table-head-cell'>Teléfono</th>
                     </tr>
                 </thead>
                 <tbody>
                     {
                         props.rows?.map((row: GovermentEntity) => (
                             <tr key={row.id}>
-                                <td>{row.name}</td>
-                                <td>{row.acronym}</td>
-                                <td>{row.address}</td>
-                                <td>{row.phone}</td>
+                                <td className='sth-table-icon-cell'>
+                                    <img className='sth-table-icon' src="icons/edit.png" alt="" />
+                                    <img className='sth-table-icon' src="icons/trash.png" alt="" />
+                                </td>
+                                <td className='sth-table-cell'>{row.name}</td>
+                                <td className='sth-table-cell'>{row.acronym}</td>
+                                <td className='sth-table-cell'>{row.address}</td>
+                                <td className='sth-table-cell'>{row.phone}</td>
                             </tr>
                         ))
                     }

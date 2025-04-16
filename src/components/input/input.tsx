@@ -4,6 +4,7 @@ import './input.css';
 interface Props {
     title?: string | null;
     value?: string | null;
+    placeholder?: string | null;
     type?: string | null;
     callback?: (value: string | null) => void;
 }
@@ -33,6 +34,7 @@ const Input = (props: Props) => {
                 className='sth-input'
                 type={props.type ?? 'text'}
                 value={props.value ?? ''}
+                placeholder={props.placeholder ?? ''}
                 onChange={handleChange}
             />
         </div>

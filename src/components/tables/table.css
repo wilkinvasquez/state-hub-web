@@ -1,3 +1,41 @@
 .sth-table-container {
-    
+    color: #0d3048;
+}
+
+.sth-table {
+    width: 100%;
+}
+
+.sth-table tbody tr:nth-child(even) {
+    background-color: #e1e5f1;
+}
+
+.sth-table-head {
+    font-family: Roboto-Bold;
+    border-bottom: 5px solid #c7cde1;
+    background-color: #e1e5f1;
+    color: #0d3048;
+}
+
+.sth-table-head-cell {
+    padding: 10px;
+}
+
+.sth-table-cell {
+    padding: 10px
+}
+
+.sth-table-icon-cell{
+    width: 100px;
+    padding-left: 10px;
+    text-align: center;
+}
+
+.sth-table-icon {
+    width: 20px;
+    margin-right: 15px;
+}
+
+.sth-table-icon:hover {
+    cursor: pointer;
 }
