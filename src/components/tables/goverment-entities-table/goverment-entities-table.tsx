@@ -2,7 +2,9 @@ import GovermentEntity from '../../../dtos/goverment-entities/goverment-entity';
 import '../table.css';
 
 interface Props {
-    rows?: Array<GovermentEntity>,
+    rows?: Array<GovermentEntity>;
+    onEdit?: (govermentEntity: GovermentEntity) => void;
+    onDelete?: (id: number | null | undefined) => void
 }
 
 const GovermentEntitiesTable = (props: Props) => {
@@ -23,8 +25,8 @@ const GovermentEntitiesTable = (props: Props) => {
                         props.rows?.map((row: GovermentEntity) => (
                             <tr key={row.id}>
                                 <td className='sth-table-icon-cell'>
-                                    <img className='sth-table-icon' src="icons/edit.png" alt="" />
-                                    <img className='sth-table-icon' src="icons/trash.png" alt="" />
+                                    <img onClick={() => props.onEdit?.(row)} className='sth-table-icon' src="icons/edit.png" alt="" />
+                                    <img onClick={() => props.onDelete?.(row.id)} className='sth-table-icon' src="icons/trash.png" alt="" />
                                 </td>
                                 <td className='sth-table-cell'>{row.name}</td>
                                 <td className='sth-table-cell'>{row.acronym}</td>

@@ -1,4 +1,3 @@
-import { ChangeEvent, useEffect, useState } from 'react';
 import './input.css';
 
 interface Props {
@@ -6,24 +5,10 @@ interface Props {
     value?: string | null;
     placeholder?: string | null;
     type?: string | null;
-    callback?: (value: string | null) => void;
+    onChange?: (value: string | null) => void;
 }
 
 const Input = (props: Props) => {
-    const [newValue, setNewValue] = useState<string | null>('');
-
-    const handleChange = (event: ChangeEvent<HTMLInputElement>) => {
-        const newValue = event.target.value;
-
-        setNewValue(newValue);
-    }
-
-    useEffect(() => {
-        if(newValue !== props.value){
-            props.callback?.(newValue);
-        }
-    }, [props, newValue]);
-
     return (
         <div className='sth-input-container'>
             <div className="sth-input-title">
@@ -35,7 +20,9 @@ const Input = (props: Props) => {
                 type={props.type ?? 'text'}
                 value={props.value ?? ''}
                 placeholder={props.placeholder ?? ''}
-                onChange={handleChange}
+                onChange={(event) => {
+                    props.onChange?.(event.target.value)
+                }}
             />
         </div>
     );
