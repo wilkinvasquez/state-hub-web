@@ -3,6 +3,8 @@ import Button from "../../button/button";
 import CreateOrUpdateGovermentEntity from "../../../dtos/goverment-entities/create-or-update-goverment-entity";
 import Input from "../../input/input";
 import '../form.css';
+import GovermentEntityService from "../../../services/goverment-entities-service/goverment-entity-service";
+import Result from "../../../dtos/results/result";
 
 interface Props {
     govermentEntity?: CreateOrUpdateGovermentEntity | null;
@@ -12,11 +14,10 @@ interface Props {
 }
 
 const GovermentEntitiesForm = (props: Props) => {
-    const [show, setShow] = useState<boolean>(false);
-    const [govermentEntity, setGovermentEntity] = useState<CreateOrUpdateGovermentEntity>();
+    const [govermentEntity, setGovermentEntity] = useState<CreateOrUpdateGovermentEntity | null | undefined>();
 
     useEffect(() => {
-        if (props.govermentEntity === null) {
+        if (!!props.govermentEntity) {
             setGovermentEntity(new CreateOrUpdateGovermentEntity());
         }
         else {
@@ -24,24 +25,22 @@ const GovermentEntitiesForm = (props: Props) => {
         }
     }, []);
 
-    useEffect(() => {
-        setShow(props.show);
-    }, [props.show]);
-
     const save = useCallback(() => {
-        setShow(false);
+        GovermentEntityService
+            .create(govermentEntity)
+            .then((result: Result<CreateOrUpdateGovermentEntity>) => {
+                console.log(result);
+                props.onSave?.();
+            })
 
-        props.onSave?.()
-    }, []);
+    }, [govermentEntity]);
 
     const close = useCallback(() => {
-        setShow(false);
-
         props.onClose?.();
     }, []);
 
     return (
-        <div className={`sth-from-container ${show ? 'sth-form-show' : 'sth-form-hide'}`}>
+        <div className={`sth-from-container ${props.show ? 'sth-form-show' : 'sth-form-hide'}`}>
             <div className="sth-form">
                 <div className="sth-form-header">
                     <div className="sth-form-title">

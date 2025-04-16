@@ -17,6 +17,7 @@ const GovermentEntitiesPage = () => {
     const [pageSize, setPageSize] = useState<number>(5);
     const [filter, setFilter] = useState<string | null>('');
     const [activeFilter, setActiveFilter] = useState<string | null>('');
+    const [showForm, setShowForm] = useState<boolean>(false);
 
     const getData = useCallback(() => {
         GovermentEntityService
@@ -39,6 +40,19 @@ const GovermentEntitiesPage = () => {
         setActiveFilter(filter);
     }
 
+    const create = useCallback(() => {
+        setShowForm(true);
+    }, []);
+
+    const onFormClose = useCallback(() => {
+        setShowForm(false);
+    }, []);
+
+    const onFormSave = useCallback(() => {
+        setShowForm(false);
+        getData();
+    }, []);
+
     return (
         <div className='goverment-entities-page-container'>
             <div className="row">
@@ -52,7 +66,7 @@ const GovermentEntitiesPage = () => {
                         buttonClassName={'sth-button sth-button-success sth-button-md'}
                         showLoading={false}
                         disabled={false}
-                        callback={onSearch}
+                        callback={create}
                     />
                 </div>
             </div>
@@ -101,7 +115,9 @@ const GovermentEntitiesPage = () => {
 
             <GovermentEntitiesForm 
                 govermentEntity={null}
-                show={true}
+                show={showForm}
+                onSave={onFormSave}
+                onClose={onFormClose}
             />
         </div>
     );
