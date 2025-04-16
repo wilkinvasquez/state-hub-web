@@ -14,22 +14,17 @@ class BaseService {
         return headers;
     }
 
-    public static get = <T>(url: string): T => {
-        const headers = this.getHeaders();
+    protected static getSingleHeaders = () => {
+        const token = StorageService.getToken();
 
-        axios.get<T>(url, { headers })
-            .then(response => {
-                console.log('response', response);
-            })
-            .catch(error => {
-                console.log('error', error);
-            });
+        const headers = {
+            'Authorization': `Bearer ${token}`,
+        };
 
-        return null as T;
+        return headers;
     }
 
     public static post = <T>(url: string, body: string): Promise<Result<T>> => {
-        console.log('body', body);
         const headers = this.getHeaders();
 
         const promise = new Promise((resolve, reject) => {
@@ -45,8 +40,21 @@ class BaseService {
         return promise as Promise<Result<T>>;
     }
 
-    public static delete = (url: string) => {
+    public static delete = (url: string, id: number): Promise<Result<boolean>> => {
+        const urlWithId =  `${url}/${id}`
+        const headers = this.getSingleHeaders();
 
+        const promise = new Promise((resolve, reject) => {
+            axios.delete(urlWithId, { headers })
+                .then(response => {
+                    resolve(response.data as Result<boolean>);
+                })
+                .catch(error => {
+                    reject(error);
+                });
+        })
+
+        return promise as Promise<Result<boolean>>;
     }
 }
 

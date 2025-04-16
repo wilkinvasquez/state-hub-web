@@ -60,8 +60,12 @@ const GovermentEntitiesPage = () => {
     }, []);
 
     const onRowDelete = useCallback((id: number | null | undefined) => {
-        
-    }, []);
+        GovermentEntityService
+            .remove(id)
+            .then(() => {
+                getData()
+            });
+    }, [getData]);
 
     return (
         <div className='goverment-entities-page-container'>

@@ -25,7 +25,7 @@ const GovermentEntitiesForm = (props: Props) => {
 
     const save = useCallback(() => {
         GovermentEntityService
-            .create(govermentEntity)
+            .createOrUpdate(govermentEntity)
             .then(() => {
                 props.onSave?.();
             })
