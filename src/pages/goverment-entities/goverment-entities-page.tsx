@@ -18,6 +18,7 @@ const GovermentEntitiesPage = () => {
     const [filter, setFilter] = useState<string | null>('');
     const [activeFilter, setActiveFilter] = useState<string | null>('');
     const [showForm, setShowForm] = useState<boolean>(false);
+    const [row, setRow] = useState<GovermentEntity>();
 
     const getData = useCallback(() => {
         GovermentEntityService
@@ -51,6 +52,15 @@ const GovermentEntitiesPage = () => {
     const onFormSave = useCallback(() => {
         setShowForm(false);
         getData();
+    }, [getData]);
+
+    const onRowEdit = useCallback((row: GovermentEntity) => {
+        setRow(row);
+        setShowForm(true)
+    }, []);
+
+    const onRowDelete = useCallback((id: number | null | undefined) => {
+        
     }, []);
 
     return (
@@ -78,7 +88,7 @@ const GovermentEntitiesPage = () => {
                         value={filter}
                         placeholder={'Escriba una palabra para buscar'}
                         type={'text'}
-                        callback={setFilter}
+                        onChange={setFilter}
                     />
                 </div>
 
@@ -96,6 +106,8 @@ const GovermentEntitiesPage = () => {
             <div className="goverment-entities-page-table-container">
                 <GovermentEntitiesTable
                     rows={tableRows}
+                    onEdit={onRowEdit}
+                    onDelete={onRowDelete}
                 />
             </div>
 
@@ -114,7 +126,7 @@ const GovermentEntitiesPage = () => {
             </div>
 
             <GovermentEntitiesForm 
-                govermentEntity={null}
+                govermentEntity={row}
                 show={showForm}
                 onSave={onFormSave}
                 onClose={onFormClose}

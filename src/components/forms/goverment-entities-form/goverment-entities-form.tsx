@@ -4,7 +4,6 @@ import CreateOrUpdateGovermentEntity from "../../../dtos/goverment-entities/crea
 import Input from "../../input/input";
 import '../form.css';
 import GovermentEntityService from "../../../services/goverment-entities-service/goverment-entity-service";
-import Result from "../../../dtos/results/result";
 
 interface Props {
     govermentEntity?: CreateOrUpdateGovermentEntity | null;
@@ -17,22 +16,19 @@ const GovermentEntitiesForm = (props: Props) => {
     const [govermentEntity, setGovermentEntity] = useState<CreateOrUpdateGovermentEntity | null | undefined>();
 
     useEffect(() => {
-        if (!!props.govermentEntity) {
-            setGovermentEntity(new CreateOrUpdateGovermentEntity());
-        }
-        else {
-            setGovermentEntity(props.govermentEntity);
-        }
-    }, []);
+        setGovermentEntity(props.govermentEntity);
+    }, [props.govermentEntity]);
+
+    useEffect(() => {
+        console.log(govermentEntity);
+    }, [govermentEntity]);
 
     const save = useCallback(() => {
         GovermentEntityService
             .create(govermentEntity)
-            .then((result: Result<CreateOrUpdateGovermentEntity>) => {
-                console.log(result);
+            .then(() => {
                 props.onSave?.();
             })
-
     }, [govermentEntity]);
 
     const close = useCallback(() => {
@@ -55,7 +51,7 @@ const GovermentEntitiesForm = (props: Props) => {
                                 title={'Nombre'}
                                 value={govermentEntity?.name}
                                 type={'text'}
-                                callback={name => setGovermentEntity({
+                                onChange={name => setGovermentEntity({
                                     ...govermentEntity,
                                     name: name
                                 })}
@@ -67,7 +63,7 @@ const GovermentEntitiesForm = (props: Props) => {
                                 title={'Descripción'}
                                 value={govermentEntity?.description}
                                 type={'text'}
-                                callback={description => setGovermentEntity({
+                                onChange={description => setGovermentEntity({
                                     ...govermentEntity,
                                     description: description
                                 })}
@@ -81,7 +77,7 @@ const GovermentEntitiesForm = (props: Props) => {
                                 title={'Acrónimo'}
                                 value={govermentEntity?.acronym}
                                 type={'text'}
-                                callback={acronym => setGovermentEntity({
+                                onChange={acronym => setGovermentEntity({
                                     ...govermentEntity,
                                     acronym: acronym
                                 })}
@@ -93,7 +89,7 @@ const GovermentEntitiesForm = (props: Props) => {
                                 title={'Dirección'}
                                 value={govermentEntity?.address}
                                 type={'text'}
-                                callback={address => setGovermentEntity({
+                                onChange={address => setGovermentEntity({
                                     ...govermentEntity,
                                     address: address
                                 })}
@@ -107,7 +103,7 @@ const GovermentEntitiesForm = (props: Props) => {
                                 title={'Teléfono'}
                                 value={govermentEntity?.phone}
                                 type={'text'}
-                                callback={phone => setGovermentEntity({
+                                onChange={phone => setGovermentEntity({
                                     ...govermentEntity,
                                     phone: phone
                                 })}
