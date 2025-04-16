@@ -9,6 +9,7 @@ import Paginator from '../../components/paginator/paginator';
 import Input from '../../components/input/input';
 import Button from '../../components/button/button';
 import GovermentEntitiesForm from '../../components/forms/goverment-entities-form/goverment-entities-form';
+import CreateOrUpdateGovermentEntity from '../../dtos/goverment-entities/create-or-update-goverment-entity';
 
 const GovermentEntitiesPage = () => {
     const [tableRows, setTableRows] = useState<Array<GovermentEntity>>([]);
@@ -51,6 +52,7 @@ const GovermentEntitiesPage = () => {
 
     const onFormSave = useCallback(() => {
         setShowForm(false);
+        setRow(new CreateOrUpdateGovermentEntity());
         getData();
     }, [getData]);
 
