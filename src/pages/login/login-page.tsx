@@ -51,7 +51,7 @@ const LoginPage = () => {
                     <div className='login-button'>
                         <Button
                             title={'Login'}
-                            buttonClassName={'sth-button sth-button-secondary sth-button-sm'}
+                            buttonClassName={'sth-button sth-button-secondary sth-button-md'}
                             showLoading={false}
                             disabled={false}
                             callback={login}

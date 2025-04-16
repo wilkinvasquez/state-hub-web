@@ -1,3 +1,12 @@
 .goverment-entities-page-container {
     background-color: rgba(237, 240, 247);
+    padding: 40px;
+}
+
+.goverment-entities-page-search-input {
+    
+}
+
+.goverment-entities-page-search-button {
+    margin-top: 15px;
 }

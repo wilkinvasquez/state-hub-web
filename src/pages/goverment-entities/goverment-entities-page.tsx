@@ -40,20 +40,24 @@ const GovermentEntitiesPage = () => {
 
     return (
         <div className='goverment-entities-page-container'>
-            <Input
-                title={'Buscar'}
-                value={filter}
-                type={'text'}
-                callback={setFilter}
-            />
+            <div className="goverment-entities-page-search-input">
+                <Input
+                    title={''}
+                    value={filter}
+                    type={'text'}
+                    callback={setFilter}
+                />
+            </div>
 
-            <Button
-                title={'Buscar'}
-                buttonClassName={''}
-                showLoading={false}
-                disabled={false}
-                callback={onSearch}
-            />
+            <div className="goverment-entities-page-search-button col-3">
+                <Button
+                    title={'Buscar'}
+                    buttonClassName={'sth-button sth-button-secondary sth-button-md'}
+                    showLoading={false}
+                    disabled={false}
+                    callback={onSearch}
+                />
+            </div>
 
             <GovermentEntitiesTable
                 rows={tableRows}
