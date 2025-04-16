@@ -1,6 +1,9 @@
 .sth-table-container {
     color: #0d3048;
     margin-bottom: 30px;
+    background-color: #ffffff;
+    padding: 20px;
+    border-radius: 20px;
 }
 
 .sth-table {
@@ -8,18 +11,18 @@
 }
 
 .sth-table tbody tr:nth-child(even) {
-    background-color: #e1e5f1;
+    background-color: #f0f2f7;
 }
 
 .sth-table-head {
     font-family: Roboto-Bold;
-    border-bottom: 5px solid #c7cde1;
-    background-color: #e1e5f1;
+    border-bottom: 5px solid #d8dcea;
     color: #0d3048;
 }
 
 .sth-table-head-cell {
     padding: 10px;
+    padding-top: 0;
 }
 
 .sth-table-cell {

@@ -8,6 +8,7 @@ import Result from '../../dtos/results/result';
 import Paginator from '../../components/paginator/paginator';
 import Input from '../../components/input/input';
 import Button from '../../components/button/button';
+import GovermentEntitiesForm from '../../components/forms/goverment-entities-form/goverment-entities-form';
 
 const GovermentEntitiesPage = () => {
     const [tableRows, setTableRows] = useState<Array<GovermentEntity>>([]);
@@ -97,6 +98,11 @@ const GovermentEntitiesPage = () => {
                     />
                 </div>
             </div>
+
+            <GovermentEntitiesForm 
+                govermentEntity={null}
+                show={true}
+            />
         </div>
     );
 }
