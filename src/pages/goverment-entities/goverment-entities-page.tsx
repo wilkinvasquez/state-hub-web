@@ -84,11 +84,19 @@ const GovermentEntitiesPage = () => {
                 />
             </div>
 
-            <Paginator
-                totalItems={totalItems}
-                onPageNumberChange={setPageNumber}
-                onPageSizeChange={setPageSize}
-            />
+            <div className="row">
+                <div className="goverment-entities-page-total-items col-9">
+                    Total de registros: {totalItems}
+                </div>
+
+                <div className="col-3">
+                    <Paginator
+                        totalItems={totalItems}
+                        onPageNumberChange={setPageNumber}
+                        onPageSizeChange={setPageSize}
+                    />
+                </div>
+            </div>
         </div>
     );
 }

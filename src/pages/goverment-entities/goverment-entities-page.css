@@ -1,4 +1,4 @@
-.goverment-entities-page-container {
+    .goverment-entities-page-container {
     background-color: rgba(237, 240, 247);
     padding: 40px;
 }
@@ -16,4 +16,11 @@
 
 .goverment-entities-page-table-container{
     margin-top: 40px;
+}
+
+.goverment-entities-page-total-items {
+    font-family: Roboto-Bold;
+    font-size: 12pt;
+    color: #0d3048;
+    padding-top: 20px;
 }

@@ -1,7 +1,9 @@
 import { ChangeEvent } from "react";
+import './select.css';
 
 interface Props {
     options?: Array<string | number>;
+    name?: string | null;
     callback?: (value: string | null) => void;
 }
 
@@ -14,7 +16,7 @@ const Select = (props: Props) => {
 
     return (
         <div className="sth-select-container">
-            <select name="sth-select" onChange={handleChange}>
+            <select name={props.name ?? ''} className="sth-select" onChange={handleChange}>
                 {
                     props.options?.map(option => (
                         <option key={option} className="sth-select-option" value={option}>{option}</option>
