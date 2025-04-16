@@ -26,7 +26,7 @@ const LoginPage = () => {
                 <div className="login-fields">
                     <div className="login-field">
                         <Input
-                            title={'Username'}
+                            title={'Usuario'}
                             value={authentication?.username}
                             type={'string'}
                             callback={username => setAuthentication({
@@ -38,7 +38,7 @@ const LoginPage = () => {
 
                     <div className="login-field">
                         <Input
-                            title={'Password'}
+                            title={'Contraseña'}
                             value={authentication?.password}
                             type={'password'}
                             callback={password => setAuthentication({

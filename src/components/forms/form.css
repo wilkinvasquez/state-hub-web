@@ -1,0 +1,55 @@
+.sth-from-container {
+    background-color: rgba(0, 0, 0, .8);
+    overflow: auto;
+    padding: 40px 150px 40px 150px;
+    position: absolute;
+    top: 0;
+    bottom: 0;
+    left: 0;
+    right: 0;
+}
+
+.sth-form {
+    background-color: rgb(255, 255, 255);
+    padding: 40px 100px 40px 100px;
+    border-radius: 20px;
+}
+
+.sth-form-header {
+    padding-bottom: 20px;
+    border-bottom: 5px solid #e8eaf3;
+}
+
+.sth-form-title{
+    font-family: Roboto-Bold;
+    color: #0d3048;
+    font-size: 14pt;
+}
+
+.sth-form-body{
+    margin: 21px 0 50px 0;
+}
+
+.sth-form-field{
+    padding-top: 20px;
+}
+
+.sth-form-footer{
+    border-top: 5px solid #e8eaf3;
+    padding-top: 30px;
+    display: flex;
+    justify-content: right;
+}
+
+.sth-form-button{
+    width: 150px;
+    margin-left: 20px;
+}
+
+.sth-form-show {
+    display: initial;
+}
+
+.sth-form-hide {
+    display: none;
+}
