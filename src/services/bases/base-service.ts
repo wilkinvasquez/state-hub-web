@@ -1,5 +1,6 @@
 import axios from "axios";
 import StorageService from "../storages/storage-service";
+import Result from "../../dtos/results/result";
 
 class BaseService {
     protected static getHeaders = () => {
@@ -27,12 +28,21 @@ class BaseService {
         return null as T;
     }
 
-    public static post = <T>(url: string, body: string): Array<T> => {
-        return [] as Array<T>;
-    }
+    public static post = <T>(url: string, body: string): Promise<Result<T>> => {
+        console.log('body', body);
+        const headers = this.getHeaders();
 
-    public static put = <T>(url: string, body: string): T => {
-        return '' as T;
+        const promise = new Promise((resolve, reject) => {
+            axios.post(url, body, { headers })
+                .then(response => {
+                    resolve(response.data as Result<T>);
+                })
+                .catch(error => {
+                    reject(error);
+                });
+        })
+
+        return promise as Promise<Result<T>>;
     }
 
     public static delete = (url: string) => {

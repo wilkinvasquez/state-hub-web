@@ -1,7 +1,7 @@
 import BaseEndPoint from "../bases/base-endpoint";
 
 class GovermentEntityEndPoint {
-    static URL = `${BaseEndPoint.BASE}/govemententities`;
+    static URL = `${BaseEndPoint.BASE}/govermententities`;
     static PAGINATION = `${BaseEndPoint.BASE}/govermententities/pagination`;
 }
 
