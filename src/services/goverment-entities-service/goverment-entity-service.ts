@@ -7,13 +7,21 @@ import Result from "../../dtos/results/result";
 import CreateOrUpdateGovermentEntity from "../../dtos/goverment-entities/create-or-update-goverment-entity";
 
 class GovermentEntityService extends BaseService {
-    public static create(govermentEntity: CreateOrUpdateGovermentEntity | null | undefined): Promise<Result<CreateOrUpdateGovermentEntity>> {
+    public static createOrUpdate(govermentEntity: CreateOrUpdateGovermentEntity | null | undefined): Promise<Result<CreateOrUpdateGovermentEntity>> {
         const url = GovermentEntityEndPoint.URL;
         const body = JSON.stringify(govermentEntity);
 
         const promise = this.post<CreateOrUpdateGovermentEntity>(url, body);
 
         return promise as Promise<Result<CreateOrUpdateGovermentEntity>>;
+    }
+
+    public static remove(id: number | null | undefined): Promise<Result<boolean>> {
+        const url = GovermentEntityEndPoint.URL;
+
+        const promise = this.delete(url, id ?? 0);
+
+        return promise as Promise<Result<boolean>>;
     }
 
     public static getAllPaged(pageNumber: number, pageSize: number, filter: string | null = ''): Promise<Result<PaginationResponse<GovermentEntity>>> {
