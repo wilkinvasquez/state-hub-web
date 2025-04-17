@@ -47,6 +47,7 @@ const GovermentEntitiesPage = () => {
     }, []);
 
     const onFormClose = useCallback(() => {
+        setRow(new CreateOrUpdateGovermentEntity());
         setShowForm(false);
     }, []);
 
