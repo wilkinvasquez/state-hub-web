@@ -8,13 +8,19 @@ import Button from '../../components/button/button';
 import AuthenticationResult from '../../dtos/authentications/authentication-result';
 import Result from '../../dtos/results/result';
 
-const LoginPage = () => {
+interface Props {
+    onLogin?: () => void
+}
+
+const LoginPage = (props: Props) => {
     const [authentication, setAuthentication] = useState<Authentication | null>(null);
 
     const login = useCallback(() => {
         UserService.authenticate<AuthenticationResult>(authentication).then((result: Result<AuthenticationResult>) => {
             StorageService.setToken(result.data!.token);
             StorageService.setUsername(result.data!.username);
+
+            props.onLogin?.();
         });
     }, [authentication]);
 
@@ -29,7 +35,7 @@ const LoginPage = () => {
                             title={'Usuario'}
                             value={authentication?.username}
                             type={'string'}
-                            callback={username => setAuthentication({
+                            onChange={username => setAuthentication({
                                 ...authentication,
                                 username: username
                             })}
@@ -41,7 +47,7 @@ const LoginPage = () => {
                             title={'Contraseña'}
                             value={authentication?.password}
                             type={'password'}
-                            callback={password => setAuthentication({
+                            onChange={password => setAuthentication({
                                 ...authentication,
                                 password: password
                             })}
