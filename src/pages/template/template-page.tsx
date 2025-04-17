@@ -1,7 +1,11 @@
 import GovermentEntitiesPage from '../goverment-entities/goverment-entities-page';
 import './template-page.css';
 
-const TemplatePage = () => {
+interface Props {
+    onLogout?: () => void
+}
+
+const TemplatePage = (props: Props) => {
     return (
         <div className="template-page">
             <div className="template-page-header">
@@ -10,7 +14,7 @@ const TemplatePage = () => {
                 </div>
 
                 <div className="template-page-logout">
-                    <img src="icons/logout.png" alt="" className="template-page-logout-image" />
+                    <img onClick={props.onLogout} src="icons/logout.png" alt="" className="template-page-logout-image" />
                 </div>
             </div>
 
