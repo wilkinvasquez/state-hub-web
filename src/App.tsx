@@ -1,10 +1,10 @@
 import './App.css'
-import GovermentEntitiesPage from './pages/goverment-entities/goverment-entities-page';
+import TemplatePage from './pages/template/template-page';
 
 function App() {
 	return (
 		// <LoginPage />
-		<GovermentEntitiesPage/>
+		<TemplatePage/>
 	);
 }
 
